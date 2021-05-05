@@ -43,7 +43,7 @@ class TeamsFragment : Fragment() {
         //get the  ID and competition name
         binding.tvCompetitionName.text = arguments?.getString(NAME)
 
-        lifecycleScope.launch(Dispatchers.IO){
+        lifecycleScope.launch{
             val id = arguments?.getInt(ID)
             fetchTeams(id)
         }
