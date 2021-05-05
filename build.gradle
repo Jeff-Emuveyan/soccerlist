@@ -4,6 +4,7 @@ buildscript {
     repositories {
         google()
         jcenter()
+        maven { url 'https://jitpack.io' }
     }
     ext.hilt_version = '2.33-beta'
     dependencies {
@@ -20,6 +21,7 @@ allprojects {
     repositories {
         google()
         jcenter()
+        maven { url 'https://jitpack.io' }
     }
 }
 

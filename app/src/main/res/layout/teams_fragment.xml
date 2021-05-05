@@ -49,24 +49,27 @@
 
         <LinearLayout
             android:id="@+id/loadingView"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/some_text_to_indicate_loading" />
+                android:background="@color/ash"
+                tools:text="@string/some_text_to_indicate_loading" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/some_more_text" />
+                android:background="@color/ash"
+                tools:text="@string/some_more_text" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
+                android:background="@color/ash"
                 android:layout_height="wrap_content"
-                android:text="@string/text_data" />
+                tools:text="@string/text_data" />
         </LinearLayout>
     </com.facebook.shimmer.ShimmerFrameLayout>
 

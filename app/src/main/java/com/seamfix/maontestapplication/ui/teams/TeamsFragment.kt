@@ -38,7 +38,6 @@ class TeamsFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        setUpUIState(UIState.LOADING, null)
 
         //get the  ID and competition name
         binding.tvCompetitionName.text = arguments?.getString(NAME)
@@ -47,13 +46,21 @@ class TeamsFragment : Fragment() {
             val id = arguments?.getInt(ID)
             fetchTeams(id)
         }
+
+        binding.retryButton.setOnClickListener {
+            lifecycleScope.launch{
+                val id = arguments?.getInt(ID)
+                fetchTeams(id)
+            }
+        }
     }
 
     private suspend fun fetchTeams(competitionId: Int?) {
         if(competitionId == null) return
+        setUpUIState(UIState.LOADING, null)
 
         val teams = viewModel.getTeams(competitionId)
-        if(teams  != null){
+        if(teams  != null && teams.isNotEmpty()){
             setUpUIState(UIState.DATA_FOUND, teams)
         }else{
             setUpUIState(UIState.NETWORK_ERROR, null)
