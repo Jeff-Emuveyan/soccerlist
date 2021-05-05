@@ -24,7 +24,6 @@ object ApiClient {
                 .header("X-Auth-Token", "0bd225e371fa47d89ff039f855a09311")
                 .header("Content-Type", "application/x-www-form-urlencoded")
                 .header("Accept", "*/*")
-                .header("Accept-Encoding", "gzip, deflate, br")
                 .header("Connection", "keep-alive")
                 .build()
 
