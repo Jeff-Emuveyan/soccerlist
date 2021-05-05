@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    android:id="@+id/parentLayout">
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+      android:layout_width="match_parent"
+      android:paddingBottom="8dp"
+      android:paddingTop="8dp"
+      android:layout_height="wrap_content">
+
+  <ImageView
+      android:id="@+id/imageView2"
+      android:layout_width="50dp"
+      android:layout_height="50dp"
+      android:layout_marginStart="16dp"
+      android:layout_marginTop="8dp"
+      android:layout_marginEnd="8dp"
+      app:layout_constraintEnd_toStartOf="@+id/tvTitle"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:srcCompat="@drawable/circle_fade_ash" />
+
+  <TextView
+      android:id="@+id/textView21"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:text="PN"
+      android:textColor="@color/brown"
+      android:textSize="@dimen/text_size_default"
+      android:gravity="center"
+      android:fontFamily="@font/lato_bold"
+      app:layout_constraintTop_toTopOf="@id/imageView2"
+      app:layout_constraintBottom_toBottomOf="@id/imageView2"
+      app:layout_constraintStart_toStartOf="@id/imageView2"
+      app:layout_constraintEnd_toEndOf="@id/imageView2"/>
+
+  <TextView
+      android:id="@+id/tvTitle"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="8dp"
+      android:layout_marginBottom="8dp"
+      android:textColor="@android:color/black"
+      android:textSize="@dimen/text_size_default"
+      android:fontFamily="@font/lato"
+      android:maxLength="20"
+      android:layout_marginEnd="12dp"
+      app:layout_constraintStart_toEndOf="@+id/imageView2"
+      app:layout_constraintTop_toTopOf="@+id/imageView2"
+      tools:text="Ronaldo" />
+
+  <TextView
+      android:id="@+id/tvMessage"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="16dp"
+      android:layout_marginEnd="8dp"
+      android:fontFamily="@font/lato"
+      android:maxLines="1"
+      android:textSize="@dimen/text_size_default"
+      app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+      app:layout_constraintStart_toStartOf="@+id/tvTitle"
+      app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+      tools:text="Midfielder" />
+
+  <TextView
+      android:id="@+id/tvCountry"
+      android:textColor="@color/default_green"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginEnd="16dp"
+      android:textSize="@dimen/text_size_default"
+      app:layout_constraintBottom_toBottomOf="@+id/tvTitle"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toTopOf="@+id/tvTitle"
+      tools:text="@tools:sample/date/hhmm" />
+
+  <TextView
+      android:id="@+id/tvCountryOfBirth"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="16dp"
+      tools:text="Date of birth"
+      android:textSize="@dimen/text_size_default"
+      android:fontFamily="@font/lato"
+      app:layout_constraintEnd_toEndOf="@+id/tvCountry"
+      app:layout_constraintTop_toBottomOf="@+id/tvCountry" />
+
+  </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

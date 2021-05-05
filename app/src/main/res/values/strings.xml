@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">MAONTestApplication</string>
+    <string name="competitions">Competitions</string>
+    <string name="network_error">Network error, please try again.</string>
+    <string name="some_text_to_indicate_loading">Some text to indicate loading...</string>
+    <string name="some_more_text">Some more text</string>
+    <string name="text_data">Text data</string>
+    <string name="network_error_try_again">Network Error, Try again</string>
+    <string name="retry">Retry</string>
+    <string name="club_details">Club Details</string>
+    <string name="founded">Founded</string>
+    <string name="nickname">Nickname</string>
+    <string name="address">Address</string>
+    <string name="phone_number">Phone number</string>
+    <string name="website">Website</string>
+    <string name="email_address">Email Address</string>
+    <string name="club_colors">Club colors</string>
+    <string name="team_players">Team Players</string>
+</resources>
