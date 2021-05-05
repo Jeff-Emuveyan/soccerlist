@@ -91,7 +91,7 @@ class MainFragment : Fragment() {
                     gridLayoutManager.orientation = GridLayoutManager.VERTICAL
                     binding.recyclerView.layoutManager = gridLayoutManager
                     binding.recyclerView.setHasFixedSize(true)
-                    val adapter = CompetitionsAdapter(requireContext(), list) {
+                    val adapter = CompetitionsAdapter(requireContext(), list.reversed()) {
                         val bundle = Bundle()
                         bundle.putInt(ID, it.id)
                         bundle.putString(NAME, it.name)

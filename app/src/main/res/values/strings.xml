@@ -6,6 +6,7 @@
     <string name="some_more_text">Some more text</string>
     <string name="text_data">Text data</string>
     <string name="network_error_try_again">Network Error, Try again</string>
+    <string name="network_error_try_again_2">Network Error or you may have been restricted from viewing this content. Try again</string>
     <string name="retry">Retry</string>
     <string name="club_details">Club Details</string>
     <string name="founded">Founded</string>
