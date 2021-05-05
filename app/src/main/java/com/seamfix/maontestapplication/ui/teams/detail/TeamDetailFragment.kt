@@ -1,6 +1,8 @@
 package com.seamfix.maontestapplication.ui.teams.detail
 
+import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,8 +10,12 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.github.twocoffeesoneteam.glidetovectoryou.GlideToVectorYou
+import com.github.twocoffeesoneteam.glidetovectoryou.GlideToVectorYouListener
+import com.seamfix.maontestapplication.R
 import com.seamfix.maontestapplication.data.model.entity.TeamDetail
 import com.seamfix.maontestapplication.databinding.TeamDetailFragmentBinding
+import com.seamfix.maontestapplication.ui.teams.TeamsAdapter
 import com.seamfix.maontestapplication.util.ID
 import com.seamfix.maontestapplication.util.NAME
 import com.seamfix.maontestapplication.util.UIState
@@ -77,17 +83,17 @@ class TeamDetailFragment : Fragment() {
 
         when(uiState){
             UIState.LOADING  ->{
-                binding.shimmer.visibility = View.VISIBLE
+                binding.shimmerView.visibility = View.VISIBLE
                 binding.errorView.visibility = View.GONE
                 binding.nestedScrollView.visibility = View.GONE
             }
             UIState.NETWORK_ERROR ->{
-                binding.shimmer.visibility = View.GONE
+                binding.shimmerView.visibility = View.GONE
                 binding.errorView.visibility = View.VISIBLE
                 binding.nestedScrollView.visibility = View.GONE
             }
             UIState.DATA_FOUND ->{
-                binding.shimmer.visibility = View.GONE
+                binding.shimmerView.visibility = View.GONE
                 binding.errorView.visibility = View.GONE
                 binding.nestedScrollView.visibility = View.VISIBLE
                 tvFounded.text = teamDetail?.founded.toString()
@@ -105,6 +111,30 @@ class TeamDetailFragment : Fragment() {
                 binding.recyclerView.setHasFixedSize(true)
                 binding.recyclerView.adapter = adapter
                 adapter.notifyDataSetChanged()
+
+                try {
+                    GlideToVectorYou.init()
+                            .with(requireContext())
+                            .setPlaceHolder(R.drawable.ic_baseline_image_24, R.drawable.ic_broken_image)
+                            .withListener(object: GlideToVectorYouListener {
+                                override fun onLoadFailed() {
+                                    binding.shimmer.stopShimmer()
+                                    binding.shimmer.hideShimmer()
+                                    binding.imageView.setImageResource(R.drawable.ic_broken_image)
+                                }
+
+                                override fun onResourceReady() {
+                                    binding.shimmer.stopShimmer()
+                                    binding.shimmer.hideShimmer()
+                                }
+                            })
+                            .load(Uri.parse(teamDetail?.crestUrl), binding.imageView)
+                } catch (e: Exception) {
+                    binding.shimmer.stopShimmer()
+                    binding.shimmer.hideShimmer()
+                    binding.imageView.setImageResource(R.drawable.ic_broken_image)
+                    Log.e(TeamsAdapter::class.simpleName, "Error from Glide")
+                }
             }
         }
     }
